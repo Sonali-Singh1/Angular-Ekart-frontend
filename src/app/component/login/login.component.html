@@ -1,0 +1,30 @@
+
+<div class='container' >
+    <div class="card-deck mt-5 d-flex align-items-center justify-content-center">
+        <div class="card text-white bg-dark col-md-4 text-center">
+            <div class="row col-md-12 header-text">
+               
+            <h3>Login</h3>
+    </div>
+    <div class="body">
+        <form [formGroup]="loginForm">
+            <div class="formGroup">
+                <input type="text" class="form-control" formControlName="id" placeholder="User Id" #id /><br />
+                </div>
+                <div *ngIf="(loginForm.controls['id'].touched &&
+                loginForm.controls['id'].errors?.['required'])" class="text-danger">
+                 This Feild required
+             </div>
+                <div class="formGroup">
+                <input type="password" class="form-control" formControlName="password" placeholder="Password" #password /><br />
+                </div>
+                
+                <div *ngIf="(loginForm.controls['password'].touched && loginForm.controls['password'].errors)" class="text-danger">
+                 Password should have minimum 5 and maximum 10 characters
+                </div>
+        </form>
+        <div class="text-danger">{{msg}}</div>
+        <button class="btn btn-success" (click)="login()">Login</button>
+        </div>
+    </div>
+</div>

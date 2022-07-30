@@ -1,0 +1,159 @@
+<p>address works!</p>
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Payment</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+  <!-- Change (in css also) -->
+  <nav class="navbar bg-primary">
+    <span class="navbar-h1 text-white fw-b"><h1 >Address Details</h1></span>
+  <span class="navbar-button"><button class="btn btn-danger " (click)="savedAddress()">Add new Address</button></span>
+</nav>
+<!-- Till here -->
+<div class="container" *ngIf="show">
+<div class="row mt-3 mx-3" style="margin-top:25px ;">
+  <div class="col-md-3">
+    <div style="margin-top: 50px; margin-left: 10px;" class="text-center">
+      <i class="fa fa-truck fa-5x"></i>
+      <h3 class="mt-3 text-dark fw-bold">Welcome</h3>
+      <p class="text-dark">You are one step away from placing your order!</p>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-white btn-rounded back-button"><i class="fa fa-chevron-left"></i>&nbsp;Go Back</button>
+    </div>
+
+
+  </div>
+  <div class="col-md-9 justify-content-center">
+    <div class="card card-custom pb-4">
+      <div class="card-body mt-0 mx-5">
+        <div class="text-center mb-3 pb-2 mt-3 ">
+         <u> <h4  class="fw-bold">Delivery Details</h4></u>
+        </div>
+
+        <form class="mb-0" [formGroup]="addressForm">
+          <div class="row mb-4">
+            <div class="col">
+              <div class="form-outline">
+                <input type="text" id="city" class="form-control input-custom" formControlName="city" />
+                <label class="form-label" for="city">City</label>
+                <div class="text-danger" *ngIf="(addressForm.controls['city'].touched || addressForm.controls['city'].dirty) && addressForm.controls['city'].errors?.['required'] ">
+                  City is required.
+              </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-outline">
+                <input type="number" id="zip" class="form-control input-custom" />
+                <label class="form-label" for="zip">Pincode</label>
+                <div class="text-danger" *ngIf="(addressForm.controls['zip'].touched || addressForm.controls['zip'].dirty) && addressForm.controls['zip'].errors?.['required'] ">
+                  Pincode is required.
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col">
+              <div class="form-outline">
+                <input type="text" id="state" class="form-control input-custom" />
+                <label class="form-label" for="state">State</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-outline">
+                <input type="text" id="country" class="form-control input-custom" />
+                <label class="form-label" for="country">Country</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="float-end ">
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-rounded"
+              style="background-color: #0062CC ;" [routerLink]="['/card']" >Proceed to Pay</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="container" *ngIf="!show">
+  <!-- Change from -->
+  <br>
+  <br>
+  <div class="card mx-auto" >
+    <div class="card-header bg-primary text-white">
+     Saved Addresses
+    </div>
+ <!-- Till here -->
+
+  <div class="row">
+      <div class="col-50" >
+          <div class="card">
+              <div class="card-body">
+                  <table class="table table-bordered table-hover" >
+                      <thead>
+                          <th scope="col">Select</th>
+                          <th scope="col">City</th>
+                          <th scope="col">Pincode</th>
+                          <th scope="col">State</th>
+                          <th scope="col">Country</th>
+                      </thead>
+                      <!-- <tbody >
+                          <tr *ngFor="let select of cards" (click)="setClickedRow(select)>
+                              <td>{{select.card-number}}</td>
+                              <td>{{select.card-holder}}</td>
+                              <td>{{select.expire-month}}</td>
+                              <td>{{select.expire-year}}</td>
+                              <td>{{select.card-cvv}}</td>
+
+                          </tr>
+                      </tbody> -->
+                      <tbody>
+                        <tr>
+                          <!-- Change -->
+                          <th ><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked/></th>
+                          <th>ABC</th>
+                          <td>200000</td>
+                          <td>UP</td>
+                          <td>INDIA</td>
+                        </tr>
+                        <tr>
+                          <th ><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" /></th>
+
+                          <th >DEF</th>
+                          <td>300000</td>
+                          <td>DLI</td>
+                          <td>INDIA</td>
+                        </tr>
+                        </tbody>
+                  </table>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+  
+</div>
+<br>
+<br>
+<!-- Change -->
+<button class="btn bg-dark" [routerLink]="['/card']" (click)="register()" style="left: 40%;"><i class="fa fa-lock"></i> Submit</button>
+
+
+</div>
+
+</body>
+</html>

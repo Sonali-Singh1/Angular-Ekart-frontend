@@ -1,0 +1,24 @@
+<br><br><br>
+<div class="container">
+    <div class="card">
+    <div class="row">
+        <div class="col-md-4">
+        <img src="{{product.image}}" class="ms-5 p-3"style="width:200px" alt="">
+        </div>
+        <div class="col-md-6 mt-3">
+            <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{product.title}}</h5>
+            <br>
+            <p><strong>Description:</strong>
+            <p style="white-space: ellipsis;max-width: 100ch;">{{product.description}}</p>
+            <p><strong>Rating:</strong> {{product.rating}} ({{product.noOfReviews}} reviews)</p>
+            <p><strong>MRP:</strong> ${{product.price}}</p>
+            <p><strong>Discount:</strong> {{product.discount}}%</p>
+            <p><strong>Price:</strong> ${{dealPrice}}</p>
+            <div class="mb-3">
+                <button class="btn btn-primary" (click)= addtocart(product) style="padding-left:20px;padding-right:20px">Add to cart</button> &nbsp;
+                <button href="#" [routerLink]="['/products']" class="btn btn-warning" data-abc="true"> <i class="fa fa-chevron-left"></i> Back </button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

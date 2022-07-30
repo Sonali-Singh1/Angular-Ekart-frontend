@@ -1,0 +1,36 @@
+<p>notification works!</p>
+<html>
+   <head>
+       <title>Notification</title>
+   </head>
+    <body>
+        <br>
+    <br><h1 class="text-white text-center bg-success">Order Placed Successfully!!! </h1>
+    <br>
+   
+    <article class="card">
+        <header class="card-header"> My Orders / Tracking </header>
+        <div class="card-body">
+            <h6>Order ID: OD45345345435</h6>
+            <article class="card">
+                <div class="card-body row">
+                    <div class="col"> <strong>Estimated Delivery time:</strong> <br>9 Mar 2022 </div>
+                    <div class="col"> <strong>Shipping BY:</strong> <br> BLUEDART, | <i class="fa fa-phone"></i> +1598675986 </div>
+                    <div class="col"> <strong>Status:</strong> <br> Order Placed </div>
+                    <div class="col"> <strong>Tracking #:</strong> <br> BD045903594059 </div>
+                </div>
+            </article>
+            <div class="track">
+                <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order confirmed</span> </div>
+                <div class="step "> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text"> Picked by courier</span> </div>
+                <div class="step"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span class="text"> On the way </span> </div>
+                <div class="step"> <span class="icon"> <i class="fa fa-shopping-bag"></i> </span> <span class="text">Ready for pickup</span> </div>
+            </div>
+            <hr>
+            
+            <hr> <button href="#" [routerLink]="['/products']" class="btn btn-warning" data-abc="true"> <i class="fa fa-chevron-left"></i> Back </button>
+        </div>
+    </article>
+
+</body>
+</html>

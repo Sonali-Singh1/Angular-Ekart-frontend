@@ -1,0 +1,98 @@
+<div class='container' >
+    <div class="card-deck mt-5 d-flex align-items-center justify-content-center">
+        <div class="card text-white bg-dark col-md-4 text-center">
+            <div class="row col-md-12 header-text">
+                <h3>Register</h3>
+            </div>
+    <div class="body">
+        <form [formGroup]="registerForm">
+            <div class="formGroup"> Name
+                <input type="text" class="form-control" formControlName="name" /><br />
+                    </div>
+                <div *ngIf="(registerForm.controls['name'].touched && registerForm.controls['name'].errors)" class="text text-danger">
+                    Name should not have any invalid character!!
+                </div>
+                <div class="formGroup"> Password 
+                   <input type="password" class="form-control" formControlName="password" placeholder="Password" #password /><br />
+                </div>
+                <div *ngIf="(registerForm.controls['password'].touched && registerForm.controls['password'].errors)" class="text text-danger">
+                    Password should have 8  to 30 characters that includes atleast one lowercase, one uppercase character, atleast one number
+                   </div>
+                <div class="formGroup"> Confirm Password
+                    <input type="password" class="form-control" formControlName="confirmPassword" (onChange)="onPasswordChange()" #password /><br />
+                    </div>
+                    
+            
+                    <div *ngIf="((registerForm.controls['confirmPassword'].touched || registerForm.controls['confirmPassword'].dirty)  && registerForm.controls['confirmPassword'].errors?.['pwdMismatch'])" class="text text-danger">
+                       {{registerForm.controls['confirmPassword'].errors?.['pwdMismatch'].message}}
+                    </div>
+               
+                        <div class="formGroup"> Date of Birth
+                            <input type="date" class="form-control" formControlName="dateOfBirth" #dob />  
+                        </div>
+                        <p *ngIf="registerForm.controls['dateOfBirth'].errors && !registerForm.controls['dateOfBirth'].pristine"
+                        class="text text-danger">Age should be between 20 and 100 years</p>
+        
+                    
+                        <div class="form-group">
+                            <label >Gender</label>
+                            
+                         <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" formControlName="gender" value="M">
+                                <label class="form-check-label" for="inlineRadio1">M</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" formControlName="gender" value="F">
+                                <label class="form-check-label" for="inlineRadio2">F</label>
+                            </div>
+                         </div>
+                          
+                    
+                        <div class="formGroup"> Mobile Number
+                            <input type="text" class="form-control" formControlName="mobileNo" #mobile />
+                        </div>
+                        <div *ngIf="(registerForm.controls['mobileNo'].touched && registerForm.controls['mobileNo'].errors)" class="text text-danger">
+                            Mobile number should have 10 digits
+                       </div>
+                    
+                        <div class="formGroup"> Email
+                              <input type="email" class="form-control" formControlName="email" #email />                
+                        </div>
+                       <div *ngIf="(registerForm.controls['email'].touched && registerForm.controls['email'].errors)" class="text text-danger">
+                           Email should be valid
+                        </div>
+                   
+                        <div class="formGroup"> Pin Code
+                            <input type="text" class="form-control" formControlName="pincode" #pincode />
+                        </div>
+                        <div *ngIf="(registerForm.controls['pincode'].touched && registerForm.controls['pincode'].errors)" class="text text-danger">
+                            PinCode should have 6 digits
+                       </div>
+                    
+                        <div class="formGroup"> City
+                              <input type="text" class="form-control" formControlName="city" #city />                
+                        </div>
+                        <div *ngIf="(registerForm.controls['city'].touched && registerForm.controls['city'].errors)" class="text text-danger">
+                            City should have 3 to 20 characters
+                       </div>
+                 
+                        <div class="formGroup"> State
+                            <input type="text" class="form-control" formControlName="state" #state />
+                        </div>
+                        <div *ngIf="(registerForm.controls['state'].touched && registerForm.controls['state'].errors)" class="text text-danger">
+                            State should have 3 to 20 characters
+                       </div>
+                        <div class="formGroup"> Country
+                              <input type="text" class="form-control" formControlName="country" #country />                
+                        </div>
+                        <div *ngIf="(registerForm.controls['country'].touched && registerForm.controls['country'].errors)" class="text text-danger">
+                            Country should have 3 to 20 characters
+                       </div>
+          </form>
+          <div class="text-danger">{{msg}}</div>
+          <br />
+          <button class="btn btn-success" (click)="register()">Register</button>
+        </div>
+  </div>
+ </div>
+</div>
